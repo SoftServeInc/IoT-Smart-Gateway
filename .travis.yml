@@ -1,0 +1,15 @@
+os: linux
+
+branches:
+    only:
+        - master
+        - development
+        - feature/*
+
+language: cpp
+
+compiler: g++
+
+script:
+    - make build
+    - make run

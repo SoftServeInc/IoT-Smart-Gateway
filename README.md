@@ -1,7 +1,8 @@
 # IoT Smart Gateway (IoTSGW)
 Smart gateway application for observing IoT devices & other services. IoTSGW is an edge data collector with the Web UI, where user can create, delete and observe IoT devices through different protocols.</br>
 The straight forward API, ability to run on Docker and IOx compatible devices (such as Cisco IR-809), outstanding speed as well as low memory requirements, simple UI, all these are the benefits of an IoTSGW.</br>
-## Docker scenario
+## Deployment
+### Docker scenario
 To download this project, use whatever is more convenient for you, e.g. git. After download, you could deploy it and assign corresponding port.
 ```
 $ git clone https://github.com/OpenSourceASAContributors/iotsmartgateway.git
@@ -11,7 +12,7 @@ $ docker-compose run -p 80:80 emulate
 ```
 So, after passing to the browser and typing "localhost" in the address bar, you will see the home page. At the same time, in the same terminal, where the docker iotsgw container had been started, you will see the CLI logs accounting that HTTP & CoAP servers are in the UP state.
 For now, CLI could be used for debugging purposes albeit its only legacy purpose is an obvious "exit".
-## IOx container scenario
+### IOx container scenario
 The procedure is straight forward, if you want to alter IOx any of an iotsgwapp' metadata, just open and modify the package.yaml. Note. In the IOx mode, the CLI will be not available, although Web UI will remain.
 ```
 $ git clone https://github.com/OpenSourceASAContributors/iotsmartgateway.git
@@ -22,8 +23,8 @@ $ docker build --tag iotsgwapp --output type=tar.dest=rootfs.tar .
 $ ioxclient package . # download ioxclient from https://software.cisco.com/download/home/286306005/type/286306762/release/1.10.0
 $ mv package.tar iotsgwapp.tar # grab your IOx package
 ```
-# API reference
-## POST <app-hostname>/add-new-observable
+## API reference
+### POST <app-hostname>/add-new-observable
 Is used to add new entity for observation.<br>
 Sample request body:
 ```
@@ -46,7 +47,7 @@ Response body:
 ```
 - result: result of an operation
 - handle: the number that is used to access the specific observable
-## POST <app-hostname>/update-observable/\<handle>
+### POST <app-hostname>/update-observable/\<handle>
 Is used to update an existing observable entity.<br>
 Sample request body:
 ```
@@ -64,14 +65,14 @@ Sample response body:
 { "result": "success" }
 ```
 - result: result of an operation
-## POST <app-hostname>/remove-observable/\<handle>
+### POST <app-hostname>/remove-observable/\<handle>
 No request body is needed. Is used to delete an existing observable entity.<br>
 Sample response body:
 ```
 { "result": "success" }
 ```
 - result: result of an operation
-## POST <app-hostname>/observe-once
+### POST <app-hostname>/observe-once
 Sample request body:
 ```
 { "device-location": "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=439d4b804bc8187953eb36d2a8c26a02" }
@@ -97,7 +98,7 @@ Response body:
 { "uptime": <uptime> }
 ```
 - uptime: duration in seconds for which the application is active
-## GET <app-hostname>/get-iotdata/\<handle>
+### GET <app-hostname>/get-iotdata/\<handle>
 Is used to obtain collected data for the specified observable by its handle.<br>
 Sample response body:
 ```
@@ -139,7 +140,7 @@ Sample response body:
 - values: the circular 50 elem array of data, collected with the specified url and path
 - values[i].date: the time point when the chosen value has been collected
 - values[i].value: the collected value, type is double
-## GET <app-hostname>/get-iotdata
+### GET <app-hostname>/get-iotdata
 Is used to obtain all collected data. Returns an array of observables.<br>
 Sample response body:
 ```
@@ -236,7 +237,7 @@ Sample response body:
 - observables[i].values: the circular 50 elem array of data, collected with the specified url and path
 - observables[i].values[j].date: the time point when the chosen value has been collected
 - observables[i].values[j].value: the collected value, type is double
-## Response errors
+### Response errors
 Is used to cover parsing and access failures.<br>
 - 400 "Bad format, json is expected": if request body is not json
 - 400 "Bad format, members are missing": if request body is missing some parameters
@@ -244,3 +245,22 @@ Is used to cover parsing and access failures.<br>
 - 404 "Bad handle, no observable found": if the handle of an observable is invalid
 - 400 "Bad param location, use: path.to.param": if the param-location in add-new-observable has invalid format
 - 400 "Bad URL, use: proto://address[:port]/[path]": if the device-location in add-new-observable or in observe-once has invalid format
+## Examples
+### webui
+![My devices](/devices.png)
+![Dashboard](/dashboards.png)
+![Add new device](/addnewdevice.png)
+![Sample observation](/observeonce.png)
+### cli
+![cli snapshot](/cli.png)
+## Authors
+- Ihor Berezhnyi (berezhnyj95@gmail.com)
+- Valentyn Faychuk (faitchouk.valentyn@gmail.com)
+- Many others, check the contributors page for details.
+## Contribution
+The IoT Smart Gateway is open for any sort of contribution or bug reporting.<br>
+Please, contact either Valentyn Faychuk or Ihor Berezhnyi for details.
+## Thanks
+This project is maintained by Valentyn Faychuk and Ihor Berezhnyi and a set of other contributors.<br>
+<br>
+Originally the application was developed to observe SoftServe internal resource but recenntly we have decided to push it to opensource.

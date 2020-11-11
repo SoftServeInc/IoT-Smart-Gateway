@@ -1,6 +1,8 @@
 # IoT Smart Gateway (IoTSGW)
-Smart gateway application for observing IoT devices & other services. IoTSGW is an edge data collector with the Web UI, where user can create, delete and observe IoT devices through different protocols.</br>
-The straight forward API, ability to run on Docker and IOx compatible devices (such as Cisco IR-809), outstanding speed as well as low memory requirements, simple UI, all these are the benefits of an IoTSGW.</br>
+Smart gateway application for observing IoT devices & other services. IoTSGW is an edge data collector with the Web UI, where user can create, delete and observe IoT devices through different protocols.<br>
+The straight forward API, ability to run on Docker and IOx compatible devices (such as Cisco IR-809), outstanding speed as well as low memory requirements, simple UI, all these are the benefits of an IoTSGW.<br>
+## Solution diagram
+![cli snapshot](/schema.png)
 ## Deployment
 ### Docker scenario
 To download this project, use whatever is more convenient for you, e.g. git. After download, you could deploy it and assign corresponding port.
@@ -250,13 +252,12 @@ Is used to cover parsing and access failures.<br>
 ![My devices](/devices.png)
 ![Dashboard](/dashboards.png)
 ![Add new device](/addnewdevice.png)
-![Sample observation](/observeonce.png)
 ### cli
 ![cli snapshot](/cli.png)
 ## Authors
 - Ihor Berezhnyi (berezhnyj95@gmail.com)
 - Valentyn Faychuk (faitchouk.valentyn@gmail.com)
-- Many others, check the contributors page for details.
+- Many others
 ## Contribution
 The IoT Smart Gateway is open for any sort of contribution or bug reporting.<br>
 Please, contact either Valentyn Faychuk or Ihor Berezhnyi for details.

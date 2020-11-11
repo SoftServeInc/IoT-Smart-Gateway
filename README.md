@@ -256,7 +256,7 @@ Is used to cover parsing and access failures.<br>
 ## Authors
 - Ihor Berezhnyi (berezhnyj95@gmail.com)
 - Valentyn Faychuk (faitchouk.valentyn@gmail.com)
-- Many others, check the contributors page for details.
+- Many others
 ## Contribution
 The IoT Smart Gateway is open for any sort of contribution or bug reporting.<br>
 Please, contact either Valentyn Faychuk or Ihor Berezhnyi for details.

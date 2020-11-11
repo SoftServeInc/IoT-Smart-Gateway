@@ -1,0 +1,9 @@
+FROM alpine:3.12
+LABEL description="IoT-Smart-Gateway dev emulator"
+
+# Install dependencies
+RUN apk upgrade && apk add --no-cache boost-filesystem boost-regex boost-thread gnutls-dev
+
+# Prepare working directory
+RUN mkdir /workspace
+WORKDIR /workspace

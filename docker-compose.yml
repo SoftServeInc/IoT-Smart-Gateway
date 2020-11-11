@@ -1,0 +1,34 @@
+version: "2"
+services:
+  make:
+    image: vfaychuk/iotsgw:build
+    container_name: iotsgw-tmp
+    volumes:
+      - ./CMakeLists.txt:/workspace/CMakeLists.txt
+      - ./build:/workspace/build
+      - ./src:/workspace/src
+    command: bash -c "hwclock -s ; mkdir -p build && cd build && cmake .. ; cmake --build ."
+    privileged: true
+
+  emulate:
+    tty: true
+    stdin_open: true
+    image: iotsgw/launch
+    build:
+      context: .
+      dockerfile: Dockerfile-launch
+    container_name: iotsgwemulator
+    ports:
+      - "15000:80"
+      - "15001:5683"
+    volumes:
+      - ./build/IoT-Smart-Gateway:/workspace/IoT-Smart-Gateway
+      - ./web:/workspace/web
+    command: ./IoT-Smart-Gateway
+
+  clean:
+    image: vfaychuk/iotsgw:build
+    container_name: iotsgw-tmp
+    volumes:
+      - ./build:/workspace/build
+    command: bash -c "mkdir -p build && cd build && rm -rf *"

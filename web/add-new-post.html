@@ -1,0 +1,286 @@
+<!doctype html>
+<html class="no-js h-100" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>IoT Smart Gateway</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="styles/shards-dashboards.1.1.0.min.css">
+    <link rel="stylesheet" href="styles/extras.1.1.0.min.css">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.snow.css"> </head>
+  <body class="h-100">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Main Sidebar -->
+        <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+          <div class="main-navbar">
+            <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+              <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
+                <div class="d-table m-auto">
+                  <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Shards Dashboard">
+                  <span class="d-none d-md-inline ml-1">IoT Smart Gateway</span>
+                </div>
+              </a>
+              <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
+                <i class="material-icons">&#xE5C4;</i>
+              </a>
+            </nav>
+          </div>
+          <form action="#" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+            <div class="input-group input-group-seamless ml-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fas fa-search"></i>
+                </div>
+              </div>
+              <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
+          </form>
+          <div class="nav-wrapper">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link " href="index.html">
+                  <i class="material-icons">edit</i>
+                  <span>IoT Dashboard</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="devices.html">
+                  <i class="material-icons">wysiwyg</i>
+                  <span>My Devices</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="add-new-post.html">
+                  <i class="material-icons">note_add</i>
+                  <span>Observe New Device</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+        <!-- End Main Sidebar -->
+        <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+          <div class="main-navbar sticky-top bg-white">
+            <!-- Main Navbar -->
+            <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
+              <form action="#" class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
+                <div class="input-group input-group-seamless ml-3">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fas fa-search"></i>
+                    </div>
+                  </div>
+                  <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
+              </form>
+              <ul class="navbar-nav border-left flex-row ">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img class="user-avatar rounded-circle mr-2" src="images/avatars/2.png" alt="User Avatar">
+                    <span class="d-none d-md-inline-block">John Smith</span>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-small">
+                    <a class="dropdown-item" href="add-new-post.html">
+                      <i class="material-icons">note_add</i> Observe New Device</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger" href="#">
+                      <i class="material-icons text-danger">&#xE879;</i> Logout </a>
+                  </div>
+                </li>
+              </ul>
+              <nav class="nav">
+                <a href="#" class="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-left" data-toggle="collapse" data-target=".header-navbar" aria-expanded="false" aria-controls="header-navbar">
+                  <i class="material-icons">&#xE5D2;</i>
+                </a>
+              </nav>
+            </nav>
+          </div>
+          <div id="alert" class="alert alert-accent alert-dismissible fade show mb-0" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+            <i class="fa fa-info mx-2"></i>
+            <strong class="result"></strong> 
+          </div>
+          <!-- / .main-navbar -->
+          <div class="main-content-container container-fluid px-4">
+            <!-- Page Header -->
+            <div class="page-header row no-gutters py-4">
+              <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+                <span class="text-uppercase page-subtitle">Device</span>
+                <h3 class="page-title">Observe New Device</h3>
+              </div>
+            </div>
+            <!-- End Page Header -->
+            <div class="row">
+              <div class="col-lg-12 col-md-12">
+                <div class="card card-small mb-3">
+                  <div class="card-body">
+                    <form class="add-new-post">
+                      <input class="form-control mb-3" id="device-name" type="text" placeholder="DEVICE NAME">
+                      <div class="input-group mb-3">
+                        <input type="text" id="url-get" class="form-control" placeholder="URL" aria-label="URL" aria-describedby="basic-addon2" value="https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=439d4b804bc8187953eb36d2a8c26a02">
+                        <div class="input-group-append">
+                          <span class="input-group-text">proto://hostname/ip[:port]/[path]</span>
+                        </div>
+                        <div class="input-group-append">
+                          <button class="btn btn-sm btn-outline-primary" type="button" data-toggle="modal" data-target="#checkURLModal" onclick="checkURLModal()">Get Json</button>
+                        </div>
+                      </div>
+                      <input class="form-control mb-3" id="param-name" type="text" placeholder="PARAM NAME">
+                      <input class="form-control mb-3" id="param-location" type="text" placeholder="PARAM LOCATION">
+                      <div class="input-group mb-3">
+                        <input class="form-control" id="device-timeout" type="number" min="0" placeholder="SET INTERVAL IN SEC">
+                        <div class="input-group-append">
+                          <span class="input-group-text">Seconds</span>
+                        </div>
+                      </div>
+                      <button type="button" id="send-btn" class="mb-2 btn btn-sm btn-success mr-1" onclick="sendJSON()"><i class="material-icons">save</i> Save divice</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
+          </footer>
+        </main>
+      </div>
+    </div>
+    <div class="modal fade bd-example-modal-lg" id="checkURLModal" tabindex="-1" role="dialog" aria-labelledby="checkURLModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="checkURLModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <pre style="word-wrap: break-word; white-space: pre-wrap;" id="responce_text"></pre>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+      document.getElementById("url-get").disabled = true;
+      document.getElementById("param-location").disabled = true;
+      document.getElementById("device-timeout").disabled = true;
+      document.getElementById("param-name").disabled = true;
+      document.getElementById("send-btn").disabled = true;
+      document.getElementById("alert").hidden = true;
+
+      $(document).keyup(function(e) {
+        if (document.getElementById('device-name').value != "") {
+          document.getElementById("url-get").disabled = false;
+          if (document.getElementById('url-get').value != "") {
+            document.getElementById("param-name").disabled = false;
+            if (document.getElementById('param-name').value != "") {
+              document.getElementById("param-location").disabled = false;
+              if (document.getElementById('param-location').value != "") {
+                document.getElementById("device-timeout").disabled = false;
+                document.getElementById("send-btn").disabled = false;
+              }
+            }
+          }
+        }
+      });
+      function isJson(str) {
+          try {
+              JSON.parse(str);
+          } catch (e) {
+              return false;
+          }
+          return true;
+      }
+      function showAlertMessage(str_responce) {
+          let result = document.querySelector('.result');
+          let alert = document.getElementById("alert");
+          if (isJson(str_responce)) {
+              var obj = JSON.parse(str_responce);
+              result.innerHTML = obj.result + " Device is created! Handle ID: " + obj.handle;
+              if (obj.result == 'success') {
+                alert.classList.add("bg-success");
+                alert.classList.remove("bg-danger");
+              } else {
+                alert.classList.add("bg-danger");
+              }
+          } else {
+              result.innerHTML = "Error: " + str_responce;
+              alert.classList.add("bg-danger");
+              alert.hidden = false;
+          }
+      }
+
+      function showMessage(str_message) {
+          let result = document.querySelector('.result');
+          let alert = document.getElementById("alert");
+          result.innerHTML = "" + str_message + "";
+          alert.classList.add("bg-success");
+          alert.hidden = false;
+      }
+
+      function sendJSON(){ 
+        let result = document.querySelector('.result');
+        let alert = document.getElementById("alert")
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "/add-new-observable", true); 
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+              showAlertMessage(this.responseText);
+            } else {
+              showAlertMessage(this.responseText);
+            }
+        }; 
+        var data = JSON.stringify({
+          "device-location": "" + document.getElementById('url-get').value + "",
+          "param-location": "" + document.getElementById('param-location').value + "",
+          "device-name": "" + document.getElementById('device-name').value + "",
+          "param-name": "" + document.getElementById('param-name').value + "",
+          "interval": document.getElementById('device-timeout').value
+        }); 
+        console.log(data);
+        xhr.send(data); 
+      } 
+
+      function checkURLModal() {
+        if(document.getElementById('device-name').value) {
+          document.getElementById('checkURLModalLabel').innerHTML = document.getElementById('device-name').value;
+        } else {
+          document.getElementById('checkURLModalLabel').innerHTML = "No Device Name";
+        }
+        var theUrl = document.getElementById('url-get').value;
+        if(theUrl) {
+          var xmlHttp = new XMLHttpRequest();
+          xmlHttp.open( "POST", "/observe-once", false ); // false for synchronous request
+          xmlHttp.send( JSON.stringify({ "device-location": theUrl }) );
+          document.getElementById('responce_text').innerHTML = xmlHttp.responseText;
+          var obj = JSON.parse(xmlHttp.responseText);
+          for ( var prop in obj ){
+            for ( var props in obj[prop] ) {
+              for ( var propss in obj[prop][props] ) {
+                var x = document.getElementById("param-location");
+                var option = document.createElement("option");
+                option.text = "" + prop + "." + props + "." + propss + "";
+                x.add(option);
+              }
+            }
+          }
+        } else {
+          document.getElementById('responce_text').innerHTML = "Please enter URL to get responce!";
+        }
+      };
+    </script>
+  </body>
+</html>

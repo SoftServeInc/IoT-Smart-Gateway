@@ -1,0 +1,359 @@
+<!doctype html>
+<html class="no-js h-100" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>IoT Smart Gateway</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="styles/shards-dashboards.1.1.0.min.css">
+    <link rel="stylesheet" href="styles/extras.1.1.0.min.css">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.snow.css"> </head>
+  <body class="h-100">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Main Sidebar -->
+        <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+          <div class="main-navbar">
+            <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+              <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
+                <div class="d-table m-auto">
+                  <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Shards Dashboard">
+                  <span class="d-none d-md-inline ml-1">IoT Smart Gateway</span>
+                </div>
+              </a>
+              <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
+                <i class="material-icons">&#xE5C4;</i>
+              </a>
+            </nav>
+          </div>
+          <form action="#" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+            <div class="input-group input-group-seamless ml-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fas fa-search"></i>
+                </div>
+              </div>
+              <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
+          </form>
+          <div class="nav-wrapper">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link " href="index.html">
+                  <i class="material-icons">edit</i>
+                  <span>IoT Dashboard</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="devices.html">
+                  <i class="material-icons">wysiwyg</i>
+                  <span>My Devices</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="add-new-post.html">
+                  <i class="material-icons">note_add</i>
+                  <span>Observe New Device</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+        <!-- End Main Sidebar -->
+        <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+          <div class="main-navbar sticky-top bg-white">
+            <!-- Main Navbar -->
+            <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
+              <form action="#" class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
+                <div class="input-group input-group-seamless ml-3">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fas fa-search"></i>
+                    </div>
+                  </div>
+                  <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
+              </form>
+              <ul class="navbar-nav border-left flex-row ">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img class="user-avatar rounded-circle mr-2" src="images/avatars/2.png" alt="User Avatar">
+                    <span class="d-none d-md-inline-block">John Smith</span>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-small">
+                    <a class="dropdown-item" href="add-new-post.html">
+                      <i class="material-icons">note_add</i> Observe New Device</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger" href="#">
+                      <i class="material-icons text-danger">&#xE879;</i> Logout </a>
+                  </div>
+                </li>
+              </ul>
+              <nav class="nav">
+                <a href="#" class="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-left" data-toggle="collapse" data-target=".header-navbar" aria-expanded="false" aria-controls="header-navbar">
+                  <i class="material-icons">&#xE5D2;</i>
+                </a>
+              </nav>
+            </nav>
+          </div>
+          <div id="alert" class="alert alert-accent alert-dismissible bg-success fade show mb-0" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+            <i class="fa fa-info mx-2"></i>
+            <strong>Error: </strong> <strong class="result"></strong> 
+          </div>
+          <!-- / .main-navbar -->
+          <div class="main-content-container container-fluid px-4">
+            <!-- Page Header -->
+            <div class="page-header row no-gutters py-4">
+                <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+                  <span class="text-uppercase page-subtitle">Dashboard</span>
+                  <h3 class="page-title">Dashboard Overview</h3>
+                </div>
+              </div>
+              <!-- End Page Header -->
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 mb-12 mb-4">
+                  <div class="card card-small">
+                    <div class="card-header border-bottom">
+                      <h6 class="m-0">List of active devices</h6>
+                    </div>
+                    <div class="card-body pt-0">
+                      <div class="card-body p-0 pb-3 text-center">
+                        <table id="table" class="table mb-0 ">
+                          <thead class="bg-light">
+                            <tr>
+                              <th scope="col" class="border-0 pull-left" width="40"></th>
+                              <th scope="col" class="border-0 pull-left" width="200">My Devices</th>
+                              <th scope="col" class="border-0 pull-left" width="250">Info</th>
+                              <th scope="col" class="border-0 pull-left">Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Users Stats -->
+              </div>
+          </div>
+          <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
+          </footer>
+        </main>
+      </div>
+    </div>
+    <div class="modal fade" id="Confirm" tabindex="-1" role="dialog" aria-labelledby="ConfirmLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-primary">
+            <h5 class="modal-title text-white text-center" id="ConfirmLabel">Please confirm action!</h5>
+            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>You will remove device:</p>
+            <p>Handle ID: <strong id="handle"></strong></p>
+            <p>Device name: <strong id="name"></strong></p>
+            <p>Device param: <strong id="parametr"></strong></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+            <button type="button" class="btn btn-secondary btn-outline-info" data-dismiss="modal" onclick="RemoveDeviceURL()">DELETE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="Edit" tabindex="-1" role="dialog" aria-labelledby="EditLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-primary">
+            <h5 class="modal-title text-white text-center" id="EditLabel">Please confirm action!</h5>
+            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>You will update device:</p>
+            <p>Handle ID: <strong id="handle-id"></strong></p>
+            <input class="form-control mb-3" id="device-name" type="text" placeholder="DEVICE NAME">
+            <input class="form-control mb-3" id="param-name" type="text" placeholder="PARAM NAME">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+            <button type="button" class="btn btn-secondary btn-outline-info" data-dismiss="modal" onclick="EditDeviceURI()">EDIT</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        document.getElementById("alert").hidden = true;
+      async function getDevices() {
+          try {
+              const response = await axios.get("./get-iotdata");
+              return response.data;
+          } catch (error) {
+              console.error(error);
+          }
+      }
+      function isJson(str) {
+          try {
+              JSON.parse(str);
+          } catch (e) {
+              return false;
+          }
+          return true;
+      }
+      function showAlertMessage(str_responce) {
+          let result = document.querySelector('.result');
+          let alert = document.getElementById("alert");
+          if (isJson(str_responce)) {
+              var obj = JSON.parse(str_responce);
+              result.innerHTML = obj.result + " Device is created! Handle ID: " + obj.handle;
+              if (obj.result == 'success') {
+                alert.classList.add("bg-success");
+                alert.classList.remove("bg-danger");
+              } else {
+                alert.classList.add("bg-danger");
+              }
+          } else {
+              result.innerHTML = "Error: " + str_responce;
+              alert.classList.add("bg-danger");
+              alert.hidden = false;
+          }
+      }
+
+      function showMessage(str_message) {
+          let result = document.querySelector('.result');
+          let alert = document.getElementById("alert");
+          result.innerHTML = "" + str_message + "";
+          alert.classList.add("bg-success");
+          alert.hidden = false;
+      }
+      async function myfunction() {
+          //setup our table array
+          const devices = await getDevices();
+          for ( var device in devices["observables"] ){
+              var tableArr = [];
+              var observable = devices["observables"][device];
+              
+              tableArr.push("<i class='material-icons custom-icon' style='font-size:30px;'>timeline</i>");
+              tableArr.push(
+                  "<em class='pull-left'>Device: " + observable["name"] + "</em></br>" +
+                  "<em class='pull-left'>Handle: <b>" + observable["handle"] + "</b></em>"
+              );
+              tableArr.push(
+                  "<em class='pull-left'>Parameter: " + observable["param"] + "</em></br>" +
+                  "<em class='pull-left'>Value: <b>" + observable["values"][0]["value"] + "</b></em>"
+              );
+              tableArr.push(
+                  "<button type='button' class='mb-2 btn btn-primary mr-2' data-toggle='modal' data-target='#Edit' " +
+                  "onclick='EditDevice(\"" + observable["handle"] + "\",\"" + observable["name"] + "\",\"" + observable["param"] + "\")'>" +
+                  "<i class='material-icons' style='font-size:15px;'>edit</i> Edit</button>" +
+                  "<button type='button' class='mb-2 btn btn-danger mr-2' data-toggle='modal' data-target='#Confirm' " +
+                  "onclick='RemoveDevice(\"" + observable["handle"] + "\",\"" + observable["name"] + "\",\"" + observable["param"] + "\")'>" +
+                  "<i class='material-icons' style='font-size:15px;'>delete_forever</i> Delete</button>"
+              );
+              //create a Table Object
+              let table = document.getElementById('table');
+              let row_new = table.insertRow();
+              for (let row in tableArr) {
+                  for (let cell in row) {
+                      let newCell = table.rows[table.rows.length - 1].insertCell();
+                      newCell.innerHTML = tableArr[row];
+                  }
+              }
+          }
+      };
+
+      myfunction();
+
+      function RemoveDevice(handle, name, param) {
+          document.getElementById('handle').innerHTML = handle;
+          document.getElementById('name').innerHTML = name;
+          document.getElementById('parametr').innerHTML = param;
+      }
+
+      function EditDevice(handle, name, param, location) {
+        document.getElementById('handle-id').innerHTML = handle;
+        document.getElementById('device-name').value = name;
+        document.getElementById('param-name').value = param;
+      }
+
+      function EditDeviceURI() {
+        let handle = document.getElementById('handle-id').innerHTML;
+        let result = document.querySelector('.result');
+        let alert = document.getElementById("alert")
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "/update-observable/" + handle, true); 
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+              showAlertMessage(this.responseText);
+            } else {
+              showAlertMessage(this.responseText);
+            }
+        }; 
+        var data = JSON.stringify({
+          //"device-location": "" + document.getElementById('url-get').value + "",
+          //"param-location": "" + document.getElementById('param-location').value + "",
+          "device-name": "" + document.getElementById('device-name').value + "",
+          "param-name": "" + document.getElementById('param-name').value + ""
+          //"interval": document.getElementById('device-timeout').value
+        }); 
+        console.log(data);
+        xhr.send(data); 
+        updateDeviceTable();
+      }
+
+      function RemoveDeviceURL() {
+          let handle = document.getElementById('handle').innerHTML;
+          let result = document.querySelector('.result');
+          let alert = document.getElementById("alert")
+          let xhr = new XMLHttpRequest();
+          xhr.open("POST", "/remove-observable/" + handle, true); 
+          xhr.setRequestHeader("Content-Type", "application/json");
+          xhr.onreadystatechange = function () {
+              if (xhr.readyState === 4 && xhr.status === 200) {
+                //result.innerHTML = this.responseText;
+                //alert.hidden = false;
+                //alert.classList.add("bg-success");
+                console.log(this.responseText);
+              } else {
+                //result.innerHTML = this.responseText;
+                //alert.hidden = false;
+                //alert.classList.add("bg-danger");
+                console.log(this.responseText);
+              }
+
+          }; 
+          var data = JSON.stringify({
+          }); 
+          console.log(data);
+          xhr.send(data); 
+          updateDeviceTable();
+      }
+
+      function updateDeviceTable(){
+        let table = document.getElementById('table');
+        table.innerHTML = "";
+        var tableHeaderRowCount = 1;
+        var rowCount = table.rows.length;
+        for (var i = tableHeaderRowCount; i < rowCount; i++) {
+            table.deleteRow(tableHeaderRowCount);
+        }
+        myfunction();
+      }
+    </script>
+  </body>
+</html>

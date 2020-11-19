@@ -1,4 +1,4 @@
-# IoT Smart Gateway (IoTSGW) [![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/SoftServeInc/IoT-Smart-Gateway)
+# IoT Smart Gateway (IoTSGW)
 Smart gateway application for observing IoT devices & other services. IoTSGW is an edge data collector with the Web UI, where user can create, delete and observe IoT devices through different protocols.<br>
 The straight forward API, ability to run on Docker and IOx compatible devices (such as Cisco IR-809), outstanding speed as well as low memory requirements, simple UI, all these are the benefits of an IoTSGW.<br>
 ## Solution diagram
